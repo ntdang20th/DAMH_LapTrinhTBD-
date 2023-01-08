@@ -8,6 +8,7 @@ import {
   ImageBackground,
   TouchableOpacity,
 } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { images, icon, colors } from "../constants";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { UiButton } from "../components";
@@ -17,16 +18,20 @@ function Welcome() {
     {
       name: "Admin",
       isSelected: true,
+      location: "LoginAdmin",
     },
     {
       name: "Doctor",
       isSelected: false,
+      location: "LoginDoctor",
     },
     {
       name: "User",
       isSelected: false,
+      location: "LoginUser",
     },
   ]);
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -152,18 +157,18 @@ function Welcome() {
             // backgroundColor: 'green'
           }}
         >
-          <UiButton title={"Next".toUpperCase()} />
-          <Text style={{ color: "white", alignSelf: "center" }}>
-            Want register to register new Account ?
-          </Text>
-          <TouchableOpacity
+          <UiButton
+            title={"Next".toUpperCase()}
             onPress={() => {
-              alert("Are you want register ???");
+              {
+                accountTypes.map((account) => {
+                  if (account.isSelected == true) {
+                    navigation.navigate(account.location);
+                  }
+                });
+              }
             }}
-            style={{ color: colors.colorSelected, alignSelf: "center" }}
-          >
-            <Text style={{ color: colors.colorSelected }}>Register</Text>
-          </TouchableOpacity>
+          />
         </View>
       </ImageBackground>
     </View>
