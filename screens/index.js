@@ -5,7 +5,7 @@ import LoginUser from "./LoginUser";
 import SignUpAdmin from "./SignUpAdmin";
 import SignUpDoctor from "./SignUpDoctor";
 import SignUpUser from "./SignUpUser";
-import Admin from "./Admin";
+import AdminDoctor from "./AdminDoctor";
 import ListViewDoctor from "./ListViewDoctor";
 
 export {
@@ -16,6 +16,6 @@ export {
   SignUpDoctor,
   LoginUser,
   SignUpUser,
-  Admin,
+  AdminDoctor,
   ListViewDoctor,
 };

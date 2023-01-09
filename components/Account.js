@@ -6,7 +6,10 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const Account = (props) => {
   return (
     <TouchableOpacity
-      style={[styles.container, { backgroundColor: props.color }]}
+      style={[
+        styles.container,
+        { backgroundColor: props.color, width: props.width },
+      ]}
     >
       <Icon style={styles.accIcon} name={props.icon} />
       <Text style={styles.textTitle}>{props.title}</Text>
@@ -17,7 +20,6 @@ const Account = (props) => {
 const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
-    width: 135,
     height: 45,
     marginHorizontal: 10,
     marginVertical: 10,

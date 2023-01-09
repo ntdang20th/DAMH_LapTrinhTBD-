@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   Image,
   Text,
@@ -14,6 +14,13 @@ import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
 
 function LoginDoctor() {
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e }));
+  };
   const navigation = useNavigation();
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
@@ -26,18 +33,44 @@ function LoginDoctor() {
         <Text style={styles.textTitle}>Doctor login</Text>
         <Text style={styles.textBody}>Log in your existant account</Text>
         <View style={{ marginTop: 20 }} />
-        <Inputs name="Email" icon="user" />
-        <Inputs name="Password" icon="lock" pass={true} />
+        <Inputs
+          name="username"
+          icon="user"
+          placeholder="Tài khoản"
+          onChangeText={handleChange}
+        />
+        <Inputs
+          name="password"
+          icon="lock"
+          pass={true}
+          placeholder="Mật khẩu"
+          onChangeText={handleChange}
+        />
         <View style={{ width: "90%" }}>
           <Text style={([styles.textBody], { alignSelf: "flex-end" })}>
             Fogot Password ?
           </Text>
         </View>
-        <Submit title={"log in".toUpperCase()} color="#3dc6a6" />
+        <Submit
+          title={"log in".toUpperCase()}
+          color="#3dc6a6"
+          onPress={() => {
+            if (inputs.username === "doctor" && inputs.password === "123") {
+              navigation.navigate("AdminDoctor");
+            } else {
+              navigation.navigate("Welcome");
+            }
+          }}
+        />
         <Text style={styles.textBody}>Or connect using</Text>
         <View style={{ flexDirection: "row" }}>
-          <Account color="#3b5c8f" icon="facebook" title="Facebook" />
-          <Account color="#ec482f" icon="google" title="Google" />
+          <Account
+            color="#3b5c8f"
+            icon="facebook"
+            title="Facebook"
+            width={135}
+          />
+          <Account color="#ec482f" icon="google" title="Google" width={135} />
         </View>
         <View style={{ flexDirection: "row", marginVertical: 5 }}>
           <Text style={styles.textBody}>Don't have an account? </Text>

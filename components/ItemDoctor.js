@@ -9,19 +9,24 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import Account from "./Account";
 function ItemDoctor(props) {
   const { name, email, phone, hospital, address, url } = props;
   return (
-    <View>
+    <View
+      style={{
+        backgroundColor: "#1bd5e4",
+        marginTop: 10,
+        margin: 5,
+        borderRadius: 15,
+      }}
+    >
       <View
         style={{
           height: 150,
           paddingTop: 20,
           paddingStart: 10,
           flexDirection: "row",
-          backgroundColor: "#4023dc",
-          margin: 5,
-          borderRadius: 15,
         }}
       >
         <Image

@@ -13,18 +13,18 @@ import { images, icon, colors } from "../constants";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { UiButton } from "../components";
 
-function Admin() {
+function AdminDoctor() {
   const [accountTypes, setAccountTypes] = useState([
     {
-      name: "QUẢN LÝ BÁC SĨ",
+      name: "QUẢN LÝ BỆNH NHÂN",
       location: "ListViewDoctor",
     },
     {
-      name: "QUẢN LÝ BỆNH NHÂN",
+      name: "QUẢN LÝ NGƯỜI THÂN",
       location: "LoginDoctor",
     },
     {
-      name: "QUẢN LÝ NGƯỜI NHÀ",
+      name: "XEM VỊ TRÍ BỆNH NHÂN",
       location: "LoginUser",
     },
   ]);
@@ -82,4 +82,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default AdminDoctor;

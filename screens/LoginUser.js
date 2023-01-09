@@ -36,8 +36,13 @@ function LoginUser() {
         <Submit title={"log in".toUpperCase()} color="#4648ec" />
         <Text style={styles.textBody}>Or connect using</Text>
         <View style={{ flexDirection: "row" }}>
-          <Account color="#3b5c8f" icon="facebook" title="Facebook" />
-          <Account color="#ec482f" icon="google" title="Google" />
+          <Account
+            color="#3b5c8f"
+            icon="facebook"
+            title="Facebook"
+            width={135}
+          />
+          <Account color="#ec482f" icon="google" title="Google" width={135} />
         </View>
         <View style={{ flexDirection: "row", marginVertical: 5 }}>
           <Text style={styles.textBody}>Don't have an account? </Text>

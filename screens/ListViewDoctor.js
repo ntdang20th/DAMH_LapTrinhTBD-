@@ -10,7 +10,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { ItemDoctor } from "../components";
+import { Account, ItemDoctor } from "../components";
 
 function ListViewDoctor(props) {
   const [items, setItems] = useState([
@@ -32,11 +32,23 @@ function ListViewDoctor(props) {
     },
   ]);
   return (
-    <ScrollView style={{ flex: 1, backgroundColor: "while", marginTop: 30 }}>
+    <ScrollView style={{ flex: 1, backgroundColor: "while", marginTop: 40 }}>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
         <Text style={{ fontSize: 30, fontWeight: "800" }}>
-          DANH SÁCH BÁC SĨ
+          DANH SÁCH BỆNH NHÂN
         </Text>
+      </View>
+      <View
+        style={{
+          flexDirection: "row",
+        }}
+      >
+        <Account
+          color="#3b5c8f"
+          icon="user-plus"
+          title="Thêm bệnh nhân"
+          width={200}
+        />
       </View>
       <ScrollView>
         {items.map((eachItem) => (

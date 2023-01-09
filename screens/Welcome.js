@@ -16,17 +16,12 @@ import { UiButton } from "../components";
 function Welcome() {
   const [accountTypes, setAccountTypes] = useState([
     {
-      name: "Admin",
+      name: "BÁC SĨ",
       isSelected: true,
-      location: "LoginAdmin",
-    },
-    {
-      name: "Doctor",
-      isSelected: false,
       location: "LoginDoctor",
     },
     {
-      name: "User",
+      name: "NGƯỜI NHÀ",
       isSelected: false,
       location: "LoginUser",
     },
@@ -105,7 +100,7 @@ function Welcome() {
               fontWeight: "bold",
             }}
           >
-            Welcome to
+            CHÀO MỪNG ĐẾN VỚI ỨNG DỤNG
           </Text>
           <Text
             style={{
@@ -115,7 +110,7 @@ function Welcome() {
               fontWeight: "bold",
             }}
           >
-            Remote patient management
+            QUẢN LÝ BỆNH NHÂN TỪ XA
           </Text>
           <Text
             style={{
@@ -125,7 +120,7 @@ function Welcome() {
               fontWeight: "bold",
             }}
           >
-            Please select your account type
+            Vui lòng chọn loại tài khoản của bạn
           </Text>
         </View>
         <View
@@ -158,7 +153,7 @@ function Welcome() {
           }}
         >
           <UiButton
-            title={"Next".toUpperCase()}
+            title={"TIẾP THEO".toUpperCase()}
             onPress={() => {
               {
                 accountTypes.map((account, index) => {
