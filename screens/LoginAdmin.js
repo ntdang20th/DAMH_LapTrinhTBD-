@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import {
   Image,
   Text,
@@ -12,8 +12,18 @@ import { images } from "../constants";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
+import axios from "axios";
 
 function LoginAdmin() {
+  const [inputs, setInputs] = useState({
+    username: "",
+    password: "",
+  });
+
+  const handChange = (e) => {
+    setInputs((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
   const navigation = useNavigation();
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
@@ -26,14 +36,31 @@ function LoginAdmin() {
         <Text style={styles.textTitle}>Admin login</Text>
         <Text style={styles.textBody}>Log in your existant account</Text>
         <View style={{ marginTop: 20 }} />
-        <Inputs name="Email" icon="user" />
-        <Inputs name="Password" icon="lock" pass={true} />
+        <Inputs
+          placeholder="Username"
+          icon="user"
+          name="username"
+          onChange={handChange}
+        />
+        <Inputs
+          placeholder="Password"
+          icon="lock"
+          pass={true}
+          name="password"
+          onChange={handChange}
+        />
         <View style={{ width: "90%" }}>
           <Text style={([styles.textBody], { alignSelf: "flex-end" })}>
             Fogot Password ?
           </Text>
         </View>
-        <Submit title={"log in".toUpperCase()} color="#f3b44d" />
+        <Submit
+          title={"log in".toUpperCase()}
+          color="#f3b44d"
+          onPress={() => {
+            navigation.navigate("ListViewDoctor");
+          }}
+        />
         <Text style={styles.textBody}>Or connect using</Text>
         <View style={{ flexDirection: "row" }}>
           <Account color="#3b5c8f" icon="facebook" title="Facebook" />

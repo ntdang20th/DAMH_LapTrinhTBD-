@@ -4,6 +4,7 @@ import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 const Submit = (props) => {
   return (
     <TouchableOpacity
+      onPress={props.onPress}
       style={[styles.container, { backgroundColor: props.color }]}
     >
       <Text style={styles.submitText}>{props.title}</Text>

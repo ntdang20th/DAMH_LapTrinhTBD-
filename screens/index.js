@@ -5,6 +5,8 @@ import LoginUser from "./LoginUser";
 import SignUpAdmin from "./SignUpAdmin";
 import SignUpDoctor from "./SignUpDoctor";
 import SignUpUser from "./SignUpUser";
+import Admin from "./Admin";
+import ListViewDoctor from "./ListViewDoctor";
 
 export {
   Welcome,
@@ -14,4 +16,6 @@ export {
   SignUpDoctor,
   LoginUser,
   SignUpUser,
+  Admin,
+  ListViewDoctor,
 };

@@ -8,6 +8,8 @@ import {
   SignUpUser,
   SignUpAdmin,
   SignUpDoctor,
+  Admin,
+  ListViewDoctor,
 } from "../screens";
 
 const Stack = createStackNavigator();
@@ -25,6 +27,8 @@ function StackNavigator() {
       <Stack.Screen name="SignUpAdmin" component={SignUpAdmin} />
       <Stack.Screen name="SignUpDoctor" component={SignUpDoctor} />
       <Stack.Screen name="SignUp" component={SignUpUser} />
+      <Stack.Screen name="Admin" component={Admin} />
+      <Stack.Screen name="ListViewDoctor" component={ListViewDoctor} />
     </Stack.Navigator>
   );
 }

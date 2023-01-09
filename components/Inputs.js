@@ -18,11 +18,13 @@ class Inputs extends Component {
         ]}
       >
         <Input
-          placeholder={this.props.name}
+          name={this.props.name}
+          placeholder={this.props.placeholder}
           onFocus={this.onFocusChange}
           inputContainerStyle={styles.inputContainer}
           inputStyle={styles.inputText}
           secureTextEntry={this.props.pass}
+          onChange={this.props.onChange}
           leftIcon={
             <Icon
               name={this.props.icon}
