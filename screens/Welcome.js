@@ -161,9 +161,9 @@ function Welcome() {
             title={"Next".toUpperCase()}
             onPress={() => {
               {
-                accountTypes.map((account) => {
+                accountTypes.map((account, index) => {
                   if (account.isSelected == true) {
-                    navigation.navigate(account.location);
+                    navigation.navigate(account.location, (key = index));
                   }
                 });
               }
