@@ -58,7 +58,7 @@ function LoginAdmin() {
           title={"log in".toUpperCase()}
           color="#f3b44d"
           onPress={() => {
-            navigation.navigate("ListViewDoctor");
+            navigation.navigate("Admin");
           }}
         />
         <Text style={styles.textBody}>Or connect using</Text>

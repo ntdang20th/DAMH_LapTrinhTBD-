@@ -19,7 +19,7 @@ function ItemDoctor(props) {
           paddingTop: 20,
           paddingStart: 10,
           flexDirection: "row",
-          backgroundColor: "#e87117",
+          backgroundColor: "#4023dc",
           margin: 5,
           borderRadius: 15,
         }}
@@ -40,27 +40,25 @@ function ItemDoctor(props) {
           </Text>
           <View style={{ height: 2, backgroundColor: "black" }} />
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ color: "black", fontSize: 16 }}>Email: </Text>
-            <Text style={{ color: "#efa510", fontSize: 16, fontWeight: "500" }}>
+            <Text style={{ color: "black", fontSize: 15 }}>Email: </Text>
+            <Text style={{ color: "#efa510", fontSize: 15, fontWeight: "500" }}>
               {email}
             </Text>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ color: "black", fontSize: 16 }}>Phone: </Text>
-            <Text style={{ color: "black", fontSize: 16, fontWeight: "500" }}>
+            <Text style={{ color: "black", fontSize: 15 }}>Phone: </Text>
+            <Text style={{ color: "black", fontSize: 15, fontWeight: "500" }}>
               {phone}
             </Text>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ color: "black", fontSize: 16 }}>Hospital: </Text>
-            <Text style={{ color: "black", fontSize: 16, fontWeight: "500" }}>
-              {hospital}
+            <Text style={{ color: "black", fontSize: 15 }}>
+              Hospital: {hospital}
             </Text>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ color: "black", fontSize: 16 }}>Address: </Text>
-            <Text style={{ color: "black", fontSize: 16, fontWeight: "500" }}>
-              {address}
+            <Text style={{ color: "black", fontSize: 15 }}>
+              Address: {address}
             </Text>
           </View>
         </View>

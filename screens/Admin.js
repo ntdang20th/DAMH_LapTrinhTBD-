@@ -17,7 +17,7 @@ function Admin() {
   const [accountTypes, setAccountTypes] = useState([
     {
       name: "QUẢN LÝ BÁC SĨ",
-      location: "LoginAdmin",
+      location: "ListViewDoctor",
     },
     {
       name: "QUẢN LÝ BỆNH NHÂN",
