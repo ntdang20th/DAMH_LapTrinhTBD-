@@ -1,5 +1,5 @@
 import { StackRouter } from "@react-navigation/native";
-import React, { Component, useState, useEffect } from "react";
+import React, { Component, useEffect, useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -15,15 +15,15 @@ import { getListPatient } from "../api/patient";
 import { Account, ItemDoctor } from "../components";
 
 function ListViewDoctor(props) {
-  const [items, setItems] = useState([]);
-
+  const [listPatient, setListPatient] = useState([]);
   useEffect(() => {
     (async () => {
-      let data = await getListPatient();
-      setItems(data);
+      let list = await getListPatient();
+      setListPatient(list);
     })();
   }, []);
 
+  const url = "../assets/doctor/";
   return (
     <ScrollView style={{ flex: 1, backgroundColor: "while", marginTop: 40 }}>
       <View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -44,10 +44,15 @@ function ListViewDoctor(props) {
         />
       </View>
       <ScrollView>
-        {items.map((eachItem) => (
+        {listPatient.map((eachItem) => (
           <ItemDoctor
-            name={`${eachItem.patient_info.last_name} ${eachItem.patient_info.first_name}`}
-            phone={eachItem.patient_info.phone_number}
+            name={`${eachItem.patient.patient_info.first_name} ${eachItem.patient.patient_info.last_name} - ${eachItem.patient.patient_info.birth}`}
+            phone={`${eachItem.patient.patient_info.phone_number} - sex: ${
+              eachItem.patient.patient_info.gender == 1 ? "Nam" : "Nữ"
+            }`}
+            address={eachItem.patient.patient_info.share_address.address}
+            doctor={`${eachItem.patient.doctor.user.first_name} ${eachItem.patient.doctor.user.last_name} `}
+            hospital={eachItem.patient.doctor.hospital_name}
           />
         ))}
       </ScrollView>

@@ -27,20 +27,13 @@ function LoginDoctor() {
 
   const [doctor, setDoctor] = useState([]);
 
-  useEffect(() => {
-    // async function FillDoctor(){
-    //   listDoctor = await getListDoctor();
-    //   console.log(listDoctor)
-    // }
-    // FillDoctor();
-  }, []);
-
   const onSubmit = async () => {
     var result = await login_doctor(username, password);
+    console.log(result);
     if (result.Success) {
       navigation.navigate("AdminDoctor");
     } else {
-      isLogin = true;
+      navigation.navigate("LoginDoctor");
     }
   };
 

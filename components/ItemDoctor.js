@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import Account from "./Account";
 function ItemDoctor(props) {
-  const { name, email, phone, hospital, address, url } = props;
+  const { name, phone, hospital, address, doctor, url, backgroundColor } =
+    props;
   return (
     <View
       style={{
@@ -37,19 +38,13 @@ function ItemDoctor(props) {
             borderRadius: 10,
             marginRight: 15,
           }}
-          source={{ uri: url }}
+          source={url}
         />
         <View style={{ flex: 1, marginRight: 10 }}>
           <Text style={{ color: "black", fontSize: 16, fontWeight: "bold" }}>
             {name}
           </Text>
           <View style={{ height: 2, backgroundColor: "black" }} />
-          <View style={{ flexDirection: "row" }}>
-            <Text style={{ color: "black", fontSize: 15 }}>Email: </Text>
-            <Text style={{ color: "#efa510", fontSize: 15, fontWeight: "500" }}>
-              {email}
-            </Text>
-          </View>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ color: "black", fontSize: 15 }}>Phone: </Text>
             <Text style={{ color: "black", fontSize: 15, fontWeight: "500" }}>
@@ -58,12 +53,17 @@ function ItemDoctor(props) {
           </View>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ color: "black", fontSize: 15 }}>
-              Hospital: {hospital}
+              Address: {address}
             </Text>
           </View>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ color: "black", fontSize: 15 }}>
-              Address: {address}
+              Doctor: {doctor}
+            </Text>
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <Text style={{ color: "black", fontSize: 15 }}>
+              Hospital: {hospital}
             </Text>
           </View>
         </View>
