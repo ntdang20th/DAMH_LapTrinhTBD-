@@ -12,9 +12,9 @@ import { images } from "../constants";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
-import axios from 'axios'
+import axios from "axios";
 import { getListDoctor } from "../api/doctor";
-import {login_doctor} from "../api/auth"
+import { login_doctor } from "../api/auth";
 
 function LoginDoctor() {
   const [username, setUsername] = useState("");
@@ -24,19 +24,23 @@ function LoginDoctor() {
   };
   const navigation = useNavigation();
 
-  const [doctor, setDoctor] = useState([])
-  // useEffect(async ()=>{
-  //   listDoctor = await getListDoctor();
-  //   console.log(listDoctor)
-  //   getAllDoctor();
-  // }, [])
+  const [doctor, setDoctor] = useState([]);
+
+  useEffect(() => {
+    async function FillDoctor() {
+      listDoctor = await getListDoctor();
+      console.log(listDoctor);
+    }
+    FillDoctor();
+  }, []);
 
   const onSubmit = async () => {
-    console.log(username)
-    console.log(password)
-    result = await login_doctor(username, password)
-    console.log(result)
-  }
+    // console.log(username);
+    // console.log(password);
+    // result = await login_doctor(username, password);
+    // console.log(result);
+    navigation.navigate("AdminDoctor");
+  };
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
