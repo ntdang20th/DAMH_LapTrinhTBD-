@@ -13,6 +13,8 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
 import axios from 'axios'
+import { getListDoctor } from "../api/doctor";
+import {login_doctor} from "../api/auth"
 
 function LoginDoctor() {
   const [username, setUsername] = useState("");
@@ -23,18 +25,18 @@ function LoginDoctor() {
   const navigation = useNavigation();
 
   const [doctor, setDoctor] = useState([])
-  useEffect(()=>{
-    async function getAllDoctor(){
-      try {
-        const doctors = await axios.get('http://10.0.2.2:8000/doctor/doctor/')
-        console.log(doctors.data)
-        setDoctor(doctors.data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    getAllDoctor();
-  }, [])
+  // useEffect(async ()=>{
+  //   listDoctor = await getListDoctor();
+  //   console.log(listDoctor)
+  //   getAllDoctor();
+  // }, [])
+
+  const onSubmit = async () => {
+    console.log(username)
+    console.log(password)
+    result = await login_doctor(username, password)
+    console.log(result)
+  }
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
@@ -67,13 +69,7 @@ function LoginDoctor() {
         <Submit
           title={"log in".toUpperCase()}
           color="#3dc6a6"
-          onPress={() => {
-            if (username === "doctor" && password === "123") {
-              navigation.navigate("AdminDoctor");
-            } else {
-              navigation.navigate("Welcome");
-            }
-          }}
+          onPress={onSubmit}
         />
         <Text style={styles.textBody}>Or connect using</Text>
         <View style={{ flexDirection: "row" }}>
