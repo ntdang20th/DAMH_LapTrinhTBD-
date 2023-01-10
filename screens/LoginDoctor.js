@@ -37,6 +37,13 @@ function LoginDoctor() {
 
   const onSubmit = async () => {
     var result = await login_doctor(username, password)
+    console.log(result)
+    if(result.Success){
+      navigation.navigate("AdminDoctor");
+    }
+    else{
+      navigation.navigate("LoginDoctor");
+    }
   }
 
   return (
