@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import {
   Image,
   Text,
@@ -12,6 +12,7 @@ import { images } from "../constants";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
+import axios from 'axios'
 
 function LoginDoctor() {
   const [username, setUsername] = useState("");
@@ -20,6 +21,20 @@ function LoginDoctor() {
     setInputs((prev) => ({ ...prev, [e.target.name]: e }));
   };
   const navigation = useNavigation();
+
+  const [doctor, setDoctor] = useState([])
+  useEffect(()=>{
+    async function getAllDoctor(){
+      try {
+        const doctors = await axios.get('http://10.0.2.2:8000/doctor/doctor/')
+        console.log(doctors.data)
+        setDoctor(doctors.data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getAllDoctor();
+  }, [])
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
@@ -53,13 +68,11 @@ function LoginDoctor() {
           title={"log in".toUpperCase()}
           color="#3dc6a6"
           onPress={() => {
-            // if (inputs.username === "doctor" && inputs.password === "123") {
-            //   navigation.navigate("AdminDoctor");
-            // } else {
-            //   navigation.navigate("Welcome");
-            // }
-            console.log(username);
-            console.log(password);
+            if (username === "doctor" && password === "123") {
+              navigation.navigate("AdminDoctor");
+            } else {
+              navigation.navigate("Welcome");
+            }
           }}
         />
         <Text style={styles.textBody}>Or connect using</Text>
