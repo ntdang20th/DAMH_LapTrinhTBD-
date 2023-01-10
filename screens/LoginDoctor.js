@@ -25,18 +25,20 @@ function LoginDoctor() {
   const navigation = useNavigation();
 
   const [doctor, setDoctor] = useState([])
-  // useEffect(async ()=>{
-  //   listDoctor = await getListDoctor();
-  //   console.log(listDoctor)
-  //   getAllDoctor();
-  // }, [])
+
+  useEffect(()=>{
+    // async function FillDoctor(){
+    //   listDoctor = await getListDoctor();
+    //   console.log(listDoctor)
+    // }
+    
+    // FillDoctor();
+  }, []);
 
   const onSubmit = async () => {
-    console.log(username)
-    console.log(password)
-    result = await login_doctor(username, password)
-    console.log(result)
+    var result = await login_doctor(username, password)
   }
+
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
