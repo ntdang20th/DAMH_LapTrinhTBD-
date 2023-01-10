@@ -7,6 +7,7 @@ import SignUpDoctor from "./SignUpDoctor";
 import SignUpUser from "./SignUpUser";
 import AdminDoctor from "./AdminDoctor";
 import ListViewDoctor from "./ListViewDoctor";
+import AdminFamiliar from "./AdminFamiliar";
 
 export {
   Welcome,
@@ -18,4 +19,5 @@ export {
   SignUpUser,
   AdminDoctor,
   ListViewDoctor,
+  AdminFamiliar
 };

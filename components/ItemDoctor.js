@@ -10,9 +10,11 @@ import {
   ScrollView,
 } from "react-native";
 import Account from "./Account";
+
 function ItemDoctor(props) {
   const { name, phone, hospital, address, doctor, url, backgroundColor } =
     props;
+
   return (
     <View
       style={{
@@ -35,10 +37,10 @@ function ItemDoctor(props) {
             width: 100,
             height: 100,
             resizeMode: "cover",
-            borderRadius: 10,
+            borderRadius: 50,
             marginRight: 15,
           }}
-          source={url}
+          source={require('../assets/doctor/2.png')}
         />
         <View style={{ flex: 1, marginRight: 10 }}>
           <Text style={{ color: "black", fontSize: 16, fontWeight: "bold" }}>

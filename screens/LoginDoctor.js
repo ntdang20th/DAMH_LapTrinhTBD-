@@ -14,7 +14,7 @@ import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
 import axios from "axios";
 import { getListDoctor } from "../api/doctor";
-import { login_doctor } from "../api/auth";
+import { user_login } from "../api/auth";
 
 function LoginDoctor() {
   const isLogin = false;
@@ -28,7 +28,7 @@ function LoginDoctor() {
   const [doctor, setDoctor] = useState([]);
 
   const onSubmit = async () => {
-    var result = await login_doctor(username, password);
+    var result = await user_login(username, password, true);
     console.log(result);
     if (result.Success) {
       navigation.navigate("AdminDoctor");

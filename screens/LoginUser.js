@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import {
   Image,
   Text,
@@ -12,9 +12,25 @@ import { images } from "../constants";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
+import { user_login } from "../api/auth";
+
 
 function LoginUser() {
   const navigation = useNavigation();
+  const isLogin = false;
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const onSubmit = async () => {
+    var result = await user_login(username, password, false);
+    console.log(result);
+    if (result.Success) {
+      navigation.navigate("AdminFamiliar");
+    } else {
+      navigation.navigate("LoginUser");
+    }
+  };
+
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
@@ -26,14 +42,29 @@ function LoginUser() {
         <Text style={styles.textTitle}>User login</Text>
         <Text style={styles.textBody}>Log in your existant account</Text>
         <View style={{ marginTop: 20 }} />
-        <Inputs name="Email" icon="user" />
-        <Inputs name="Password" icon="lock" pass={true} />
+        <Inputs
+          name="username"
+          icon="user"
+          placeholder="Tài khoản"
+          onChangeText={(text) => setUsername(text)}
+        />
+        <Inputs
+          name="password"
+          icon="lock"
+          pass={true}
+          placeholder="Mật khẩu"
+          onChangeText={(text) => setPassword(text)}
+        />
         <View style={{ width: "90%" }}>
           <Text style={([styles.textBody], { alignSelf: "flex-end" })}>
             Fogot Password ?
           </Text>
         </View>
-        <Submit title={"log in".toUpperCase()} color="#4648ec" />
+        <Submit
+          title={"log in".toUpperCase()}
+          color="#3dc6a6"
+          onPress={onSubmit}
+        />
         <Text style={styles.textBody}>Or connect using</Text>
         <View style={{ flexDirection: "row" }}>
           <Account

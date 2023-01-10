@@ -1,4 +1,3 @@
-import { StackRouter } from "@react-navigation/native";
 import React, { Component, useEffect, useState } from "react";
 import {
   StyleSheet,
@@ -46,15 +45,17 @@ function ListViewDoctor(props) {
       <ScrollView>
         {listPatient.map((eachItem) => (
           <ItemDoctor
-            name={`${eachItem.patient.patient_info.first_name} ${eachItem.patient.patient_info.last_name} - ${eachItem.patient.patient_info.birth}`}
-            phone={`${eachItem.patient.patient_info.phone_number} - sex: ${
+            name={`${eachItem.patient.patient_info.first_name} ${eachItem.patient.patient_info.last_name} / ${eachItem.patient.patient_info.birth}`}
+            phone={`${eachItem.patient.patient_info.phone_number} - Gender: ${
               eachItem.patient.patient_info.gender == 1 ? "Nam" : "Nữ"
             }`}
             address={eachItem.patient.patient_info.share_address.address}
             doctor={`${eachItem.patient.doctor.user.first_name} ${eachItem.patient.doctor.user.last_name} `}
             hospital={eachItem.patient.doctor.hospital_name}
+            url = {eachItem.patient.patient_info.profile_picture}
           />
         ))}
+
       </ScrollView>
     </ScrollView>
   );

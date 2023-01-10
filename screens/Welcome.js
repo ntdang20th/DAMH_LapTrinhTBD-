@@ -156,9 +156,9 @@ function Welcome() {
             title={"TIẾP THEO".toUpperCase()}
             onPress={() => {
               {
-                accountTypes.map((account, index) => {
+                accountTypes.map((account) => {
                   if (account.isSelected == true) {
-                    navigation.navigate(account.location, (key = index));
+                    navigation.navigate(account.location);
                   }
                 });
               }

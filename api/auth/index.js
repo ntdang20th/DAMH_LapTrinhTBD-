@@ -1,12 +1,13 @@
 import axios from "axios";
 
-const login_doctor = async (username, password) => {
+const user_login = async (username, password, is_doctor) => {
   const result = axios({
     method: "post",
-    url: "http://10.0.2.2:8000/doctor/doctor_login/",
+    url: "http://10.0.2.2:8000/api/login/",
     data: {
       username: username,
       password: password,
+      is_doctor: is_doctor
     },
   }).then(function (response) {
     return response.data;
@@ -14,4 +15,4 @@ const login_doctor = async (username, password) => {
   return result;
 };
 
-export { login_doctor };
+export { user_login };
