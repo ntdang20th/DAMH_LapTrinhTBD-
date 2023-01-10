@@ -14,10 +14,8 @@ import { Account, Inputs, Submit } from "../components";
 import { useNavigation } from "@react-navigation/native";
 
 function LoginDoctor() {
-  const [inputs, setInputs] = useState({
-    username: "",
-    password: "",
-  });
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const handleChange = (e) => {
     setInputs((prev) => ({ ...prev, [e.target.name]: e }));
   };
@@ -37,14 +35,14 @@ function LoginDoctor() {
           name="username"
           icon="user"
           placeholder="Tài khoản"
-          onChangeText={handleChange}
+          onChangeText={(text) => setUsername(text)}
         />
         <Inputs
           name="password"
           icon="lock"
           pass={true}
           placeholder="Mật khẩu"
-          onChangeText={handleChange}
+          onChangeText={(text) => setPassword(text)}
         />
         <View style={{ width: "90%" }}>
           <Text style={([styles.textBody], { alignSelf: "flex-end" })}>
@@ -55,11 +53,13 @@ function LoginDoctor() {
           title={"log in".toUpperCase()}
           color="#3dc6a6"
           onPress={() => {
-            if (inputs.username === "doctor" && inputs.password === "123") {
-              navigation.navigate("AdminDoctor");
-            } else {
-              navigation.navigate("Welcome");
-            }
+            // if (inputs.username === "doctor" && inputs.password === "123") {
+            //   navigation.navigate("AdminDoctor");
+            // } else {
+            //   navigation.navigate("Welcome");
+            // }
+            console.log(username);
+            console.log(password);
           }}
         />
         <Text style={styles.textBody}>Or connect using</Text>
