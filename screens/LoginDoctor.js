@@ -17,6 +17,7 @@ import { getListDoctor } from "../api/doctor";
 import { login_doctor } from "../api/auth";
 
 function LoginDoctor() {
+  const isLogin = false;
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const handleChange = (e) => {
@@ -27,20 +28,22 @@ function LoginDoctor() {
   const [doctor, setDoctor] = useState([]);
 
   useEffect(() => {
-    async function FillDoctor() {
-      listDoctor = await getListDoctor();
-      console.log(listDoctor);
-    }
-    FillDoctor();
+    // async function FillDoctor(){
+    //   listDoctor = await getListDoctor();
+    //   console.log(listDoctor)
+    // }
+    // FillDoctor();
   }, []);
 
   const onSubmit = async () => {
-    // console.log(username);
-    // console.log(password);
-    // result = await login_doctor(username, password);
-    // console.log(result);
-    navigation.navigate("AdminDoctor");
+    var result = await login_doctor(username, password);
+    if (result.Success) {
+      navigation.navigate("AdminDoctor");
+    } else {
+      isLogin = true;
+    }
   };
+
   return (
     <ScrollView style={{ backgroundColor: "white" }}>
       <View style={styles.container}>
@@ -65,6 +68,13 @@ function LoginDoctor() {
           placeholder="Mật khẩu"
           onChangeText={(text) => setPassword(text)}
         />
+        {isLogin == true ? (
+          <Text style={{ fontSize: 20, color: "red" }}>
+            Sài tài khoản hoặc mật khẩu
+          </Text>
+        ) : (
+          ""
+        )}
         <View style={{ width: "90%" }}>
           <Text style={([styles.textBody], { alignSelf: "flex-end" })}>
             Fogot Password ?
@@ -75,16 +85,6 @@ function LoginDoctor() {
           color="#3dc6a6"
           onPress={onSubmit}
         />
-        <Text style={styles.textBody}>Or connect using</Text>
-        <View style={{ flexDirection: "row" }}>
-          <Account
-            color="#3b5c8f"
-            icon="facebook"
-            title="Facebook"
-            width={135}
-          />
-          <Account color="#ec482f" icon="google" title="Google" width={135} />
-        </View>
         <View style={{ flexDirection: "row", marginVertical: 5 }}>
           <Text style={styles.textBody}>Don't have an account? </Text>
           <Text

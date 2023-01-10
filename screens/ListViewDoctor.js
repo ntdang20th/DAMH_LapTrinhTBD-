@@ -15,26 +15,8 @@ import { getListPatient } from "../api/patient";
 import { Account, ItemDoctor } from "../components";
 
 function ListViewDoctor(props) {
-  const [items, setItems] = useState([
-    // {
-    //   name: "Nguyễn Thành Đặng",
-    //   email: "dangnt@gmail.com",
-    //   phone: "0956821547",
-    //   hospital: "Bệnh viện đa khoa An Giang",
-    //   address: "An Giang",
-    //   url: "https://img.freepik.com/free-photo/smiling-asian-male-doctor-pointing-upwards_1262-18321.jpg?w=740&t=st=1673235532~exp=1673236132~hmac=8998677db5fae09c1d5912df224d7edc73961b7d3df36f8dc74c7fe1ca136de5",
-    // },
-    // {
-    //   name: "Nguyễn Hoàng Nam",
-    //   email: "namnh@gmail.com",
-    //   phone: "0258931476",
-    //   hospital: "Bệnh viện đa khoa An Giang",
-    //   address: "Cần Thơ",
-    //   url: "https://img.freepik.com/free-photo/smiling-asian-male-doctor-pointing-upwards_1262-18321.jpg?w=740&t=st=1673235532~exp=1673236132~hmac=8998677db5fae09c1d5912df224d7edc73961b7d3df36f8dc74c7fe1ca136de5",
-    // },
-  ]);
+  const [items, setItems] = useState([]);
 
-  const [patient, setPatient] = useState([]);
   useEffect(() => {
     (async () => {
       let data = await getListPatient();
