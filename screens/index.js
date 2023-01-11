@@ -8,6 +8,7 @@ import SignUpUser from "./SignUpUser";
 import AdminDoctor from "./AdminDoctor";
 import ListViewDoctor from "./ListViewDoctor";
 import AdminFamiliar from "./AdminFamiliar";
+import AddPatient from "./AddPatient";
 
 export {
   Welcome,
@@ -19,5 +20,6 @@ export {
   SignUpUser,
   AdminDoctor,
   ListViewDoctor,
-  AdminFamiliar
+  AdminFamiliar, 
+  AddPatient
 };

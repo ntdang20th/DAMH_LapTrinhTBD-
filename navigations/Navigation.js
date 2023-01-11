@@ -10,6 +10,7 @@ import {
   AdminDoctor,
   ListViewDoctor,
   AdminFamiliar,
+  AddPatient,
 } from "../screens";
 
 const Stack = createStackNavigator();
@@ -29,6 +30,7 @@ function StackNavigator() {
       <Stack.Screen name="AdminDoctor" component={AdminDoctor} />
       <Stack.Screen name="ListViewDoctor" component={ListViewDoctor} />
       <Stack.Screen name="AdminFamiliar" component={AdminFamiliar} />
+      <Stack.Screen name="AddPatient" component={AddPatient} />
     </Stack.Navigator>
   );
 }

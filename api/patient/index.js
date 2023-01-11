@@ -3,7 +3,7 @@ import axios from "axios";
 const getListPatient = async () => {
   try {
     const patient = await axios.get(
-      "http://10.0.2.2:8000/patient/has-patient-familiar/"
+      "http://10.0.2.2:8000/patient/patient/"
     );
     return patient.data;
   } catch (error) {
@@ -11,4 +11,16 @@ const getListPatient = async () => {
   }
 };
 
-export { getListPatient };
+const addPatient = async (request) => {
+  const result = axios({
+    method: "post",
+    url: "http://10.0.2.2:8000/patient/add-patient/",
+    data: request
+  
+  }).then(function (response) {
+    return response.data;
+  });
+  return result;
+};
+
+export { getListPatient, addPatient };

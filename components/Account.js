@@ -6,6 +6,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 const Account = (props) => {
   return (
     <TouchableOpacity
+    onPress={props.onPress}
       style={[
         styles.container,
         { backgroundColor: props.color, width: props.width },
